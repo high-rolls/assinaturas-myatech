@@ -1,7 +1,7 @@
 const canvas = document.getElementById('signature');
 const ctx = canvas.getContext('2d', {alpha: false});
 const bg_image = new Image(canvas.width, canvas.height);
-bg_image.crossOrigin = 'anonymous';
+bg_image.src = 'assets/bg-image.jpg';
 bg_image.onload = drawBackground;
 
 const full_name_input = document.getElementById('full-name');
@@ -69,7 +69,6 @@ function drawEmail() {
 }
 
 function downloadSignature() {
-    var image = canvas.toDataURL('image/png')
-        .replace('image/png', 'image/octet-stream');
-    download_button.setAttribute('href', image);
+    var image = canvas.toDataURL();
+    download_button.href = image;
 }
