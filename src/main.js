@@ -1,7 +1,7 @@
 const canvas = document.getElementById('signature');
 const ctx = canvas.getContext('2d', {alpha: false});
-const bg_image = new Image(700, 128);
-bg_image.src = 'assets/bg-image.jpg';
+const bg_image = new Image(canvas.width, canvas.height);
+bg_image.crossOrigin = 'anonymous';
 bg_image.onload = drawBackground;
 
 const full_name_input = document.getElementById('full-name');
@@ -10,11 +10,15 @@ const phone_input = document.getElementById('phone-number');
 const phone2_input = document.getElementById('phone-number2');
 const email_input = document.getElementById('email');
 
+const download_button = document.getElementById('download');
+
 full_name_input.oninput = draw;
 title_input.oninput = draw;
 phone_input.oninput = draw;
 phone2_input.oninput = draw;
 email_input.oninput = draw;
+
+download_button.onclick = downloadSignature;
 
 function draw() {
     drawBackground();
@@ -62,4 +66,10 @@ function drawEmail() {
     ctx.font = '9px MontserratMedium, Arial';
     ctx.fillStyle = '#ffffff';
     ctx.fillText(email_input.value, 16, 78);
+}
+
+function downloadSignature() {
+    var image = canvas.toDataURL('image/png')
+        .replace('image/png', 'image/octet-stream');
+    download_button.setAttribute('href', image);
 }
