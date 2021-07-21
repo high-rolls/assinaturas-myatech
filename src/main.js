@@ -34,7 +34,7 @@ function draw() {
 
     ctx.font = '9px MontserratMedium, sans-serif';
 
-    phone = joinStrings(phone_input.value, phone2_input.value, ' | ');
+    phone = joinStrings(formatPhoneNumber(phone_input.value), formatPhoneNumber(phone2_input.value), ' | ');
     ctx.fillText(phone, 16, 60);
     ctx.fillText(email_input.value, 16, 70);
     if (skype_input.value) {
@@ -58,6 +58,22 @@ function joinStrings(s1, s2, sep) {
     }
     return res;
 }
+
+
+function formatPhoneNumber(pn) {
+    res = "";
+    if (pn.length >= 10) {
+        res += "(" + pn.slice(0, 2) + ") ";
+        pn = pn.slice(2);
+    }
+    if (pn.length > 4) {
+        res += pn.slice(0, -4) + '-' + pn.slice(-4);
+    } else {
+        res = pn;
+    }
+    return res;
+}
+
 
 function downloadSignature() {
     var image = canvas.toDataURL();
