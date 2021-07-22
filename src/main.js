@@ -1,8 +1,7 @@
 const canvas = document.getElementById('signature');
 const ctx = canvas.getContext('2d', {alpha: false});
 const bg_image = new Image(canvas.width, canvas.height);
-bg_image.src = 'https://www.mymax.ind.br/assinatura/fundo-assinatura.jpg';
-bg_image.crossOrigin = 'anonymous';
+bg_image.src = 'assets/bg-image.jpg';
 bg_image.onload = draw;
 
 const full_name_input = document.getElementById('full-name');
