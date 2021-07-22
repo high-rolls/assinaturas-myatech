@@ -13,6 +13,9 @@ const skype_input = document.getElementById('skype');
 
 const download_button = document.getElementById('download');
 
+phone_input.oninput = allowOnlyNumbers;
+phone2_input.oninput = allowOnlyNumbers;
+
 [full_name_input, title_input, phone_input, phone2_input, email_input, skype_input]
     .forEach(element => element.addEventListener('input', draw));
 
@@ -53,6 +56,13 @@ function joinStrings(s1, s2, sep) {
         res = s2;
     }
     return res;
+}
+
+
+function allowOnlyNumbers(event) {
+    element = event.target;
+    var regex = /[^\d]/gi;
+    element.value = element.value.replace(regex, "");
 }
 
 
