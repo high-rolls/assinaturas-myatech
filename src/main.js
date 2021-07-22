@@ -13,12 +13,8 @@ const skype_input = document.getElementById('skype');
 
 const download_button = document.getElementById('download');
 
-full_name_input.oninput = draw;
-title_input.oninput = draw;
-phone_input.oninput = draw;
-phone2_input.oninput = draw;
-email_input.oninput = draw;
-skype_input.oninput = draw;
+[full_name_input, title_input, phone_input, phone2_input, email_input, skype_input]
+    .forEach(element => element.addEventListener('input', draw));
 
 download_button.onclick = downloadSignature;
 
