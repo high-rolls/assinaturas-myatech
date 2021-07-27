@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'MontserratMedium';
+    src: url('../fonts/Montserrat-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('../fonts/Montserrat-Bold.ttf');
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
